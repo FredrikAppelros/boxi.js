@@ -1,9 +1,10 @@
 global = exports ? this
 
 class global.GraphicsEngine
-    constructor: (id) ->
+    constructor: (canvas) ->
+        # TODO add fullscreen support
+
         # Create a renderer
-        canvas = document.querySelector("##{id}")
         @renderer = PIXI.autoDetectRenderer(canvas.width, canvas.height, canvas)
 
         # Create a texture cache

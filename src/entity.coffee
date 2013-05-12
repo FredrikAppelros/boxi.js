@@ -15,6 +15,7 @@ class global.SpriteEntity extends Entity
     constructor: (x, y, sprite) ->
         super(x, y)
         @sprite = sprite
+        # TODO add visibility flag and sync with sprite
 
     update: (state) ->
         super(state)
