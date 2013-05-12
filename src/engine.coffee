@@ -16,6 +16,8 @@ class global.GameEngine
         canvas.addEventListener('mousedown', (event) => @onMouseDown(event))
         canvas.addEventListener('mousemove', (event) => @onMouseMove(event))
         canvas.addEventListener('mouseup', (event) => @onMouseUp(event))
+        # Disable context menu
+        canvas.addEventListener('contextmenu', (event) -> event.preventDefault())
 
     start: ->
         window.requestAnimationFrame(=> @run())
