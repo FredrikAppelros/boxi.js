@@ -14,6 +14,7 @@ SCALE       = 30
 class global.PhysicsEngine
     constructor: (gravity) ->
         @world = new b2World(new b2Vec2(gravity.x, gravity.y), true)
+        @bodies = {}
 
     simulate: ->
         # Perform simulation
@@ -34,18 +35,21 @@ class global.PhysicsEngine
                 entity.update(state)
             b = b.GetNext()
 
-    createBody: (pos, body, entity) ->
+    createBody: (pos, bodyParams) ->
         fixDef = new b2FixtureDef
         bodyDef = new b2BodyDef
         fixDef.shape = new b2PolygonShape
-        fixDef.shape.SetAsBox(0.5 * body.w / SCALE, 0.5 * body.h / SCALE)
-        fixDef.density = body.d
-        fixDef.friction = body.f
-        fixDef.restitution = body.r
-        bodyDef.type = if body.dynamic then b2Body.b2_dynamicBody else b2Body.b2_staticBody
+        fixDef.shape.SetAsBox(0.5 * bodyParams.w / SCALE, 0.5 * bodyParams.h / SCALE)
+        fixDef.density = bodyParams.d
+        fixDef.friction = bodyParams.f
+        fixDef.restitution = bodyParams.r
+        bodyDef.type = if bodyParams.dynamic then b2Body.b2_dynamicBody else b2Body.b2_staticBody
         bodyDef.position.x = pos.x / SCALE
         bodyDef.position.y = pos.y / SCALE
         body = @world.CreateBody(bodyDef)
         body.CreateFixture(fixDef)
-        body.SetUserData(entity)
+        return body
+
+    removeBody: (body) ->
+        @world.DestroyBody(body)
 

@@ -38,14 +38,27 @@ class global.GameEngine
         # Request next frame
         window.requestAnimationFrame(=> @run())
 
-    createEntity: (pos, img, body) ->
+    createEntity: (pos, img, bodyParams) ->
+        # Create backend objects
         if img?
             sprite = @graphics.createSprite(img)
-            entity = new SpriteEntity(pos.x, pos.y, sprite)
+        if bodyParams?
+            body = @physics.createBody(pos, bodyParams)
+
+        # Create the entity
+        if sprite? or body?
+            entity = new PhysicalEntity(pos.x, pos.y, sprite, body)
         else
             entity = new Entity(pos.x, pos.y)
+
         @entities[entity.id] = entity
-        @physics.createBody(pos, body, entity) if body?
+        return entity.id
+
+    removeEntity: (id) ->
+        entity = @entities[id]
+        @physics.removeBody(entity.body) if entity.body?
+        @graphics.removeSprite(entity.sprite) if entity.sprite?
+        delete @entities[id]
 
     logic: ->
     onKeyDown: (event) ->

@@ -11,15 +11,16 @@ class global.Entity
         @x = state.x
         @y = state.y
 
-class global.SpriteEntity extends Entity
-    constructor: (x, y, sprite) ->
+class global.PhysicalEntity extends Entity
+    constructor: (x, y, @sprite, @body) ->
         super(x, y)
-        @sprite = sprite
+        @body.SetUserData(this) if @body?
         # TODO add visibility flag and sync with sprite
 
     update: (state) ->
         super(state)
-        @sprite.position.x = state.x
-        @sprite.position.y = state.y
-        @sprite.rotation = state.a
+        if @sprite?
+            @sprite.position.x = state.x
+            @sprite.position.y = state.y
+            @sprite.rotation = state.a
 

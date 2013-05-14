@@ -23,3 +23,6 @@ class global.GraphicsEngine
         @stage.addChild(sprite)
         return sprite
 
+    removeSprite: (sprite) ->
+        @stage.removeChild(sprite)
+
