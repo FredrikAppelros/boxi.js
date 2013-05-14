@@ -16,6 +16,9 @@ class global.GameEngine
         canvas.addEventListener('mousedown', (event) => @onMouseDown(event))
         canvas.addEventListener('mousemove', (event) => @onMouseMove(event))
         canvas.addEventListener('mouseup', (event) => @onMouseUp(event))
+        canvas.addEventListener('touchend', (event) => @onTouchEnd(event))
+        canvas.addEventListener('touchmove', (event) => @onTouchMove(event))
+        canvas.addEventListener('touchstart', (event) => @onTouchStart(event))
         # Disable context menu
         canvas.addEventListener('contextmenu', (event) -> event.preventDefault())
 
@@ -50,4 +53,7 @@ class global.GameEngine
     onMouseDown: (event) ->
     onMouseMove: (event) ->
     onMouseUp: (event) ->
+    onTouchEnd: (event) ->
+    onTouchMove: (event) ->
+    onTouchStart: (event) ->
 
