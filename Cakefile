@@ -21,8 +21,7 @@ task 'doc', 'Build the documentation for the project', ->
         --output doc/
         --renderer gfm
         --hide-private
-        src/
-        && cp doc/*.md ../boxi.js.wiki', (err, stdout, stderr) ->
+        src/', (err, stdout, stderr) ->
         throw err if err
         console.log stdout + stderr
 
