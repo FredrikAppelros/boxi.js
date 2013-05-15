@@ -2,6 +2,11 @@ global = exports ? this
 
 class global.GraphicsEngine
     constructor: (canvas) ->
+        ###
+        Parameters
+        ----------
+        - `canvas` : the canvas object
+        ###
         # TODO add fullscreen support
 
         # Create a renderer
@@ -14,9 +19,22 @@ class global.GraphicsEngine
         @stage = new PIXI.Stage
 
     drawFrame: ->
+        ###
+        Renders a single frame.
+        ###
         @renderer.render(@stage)
 
     createSprite: (img) ->
+        ###
+        Creates a sprite object.
+
+        Parameters
+        ----------
+        - `img` : an image object on the form: `{path}`
+        Returns
+        -------
+        - `sprite` : the sprite object
+        ###
         @textures[img.path] = PIXI.Texture.fromImage(img.path) unless @textures[img.path]
         sprite = new PIXI.Sprite(@textures[img.path])
         sprite.anchor.x = sprite.anchor.y = 0.5
@@ -24,5 +42,12 @@ class global.GraphicsEngine
         return sprite
 
     removeSprite: (sprite) ->
+        ###
+        Removes a sprite object.
+
+        Parameters
+        ----------
+        - `sprite` : the sprite to remove
+        ###
         @stage.removeChild(sprite)
 
