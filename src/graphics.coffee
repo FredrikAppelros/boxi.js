@@ -31,6 +31,7 @@ class global.GraphicsEngine
         Parameters
         ----------
         - `img` : an image object on the form: `{path}`
+
         Returns
         -------
         - `sprite` : the sprite object

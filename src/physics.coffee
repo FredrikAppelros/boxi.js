@@ -52,6 +52,7 @@ class global.PhysicsEngine
         - `pos` : a position on the form: `{x, y}`
         - `bodyParams` : parameters for the BodyDef on the form:
             `{dyn, w, h, d, f, r}`
+
         Returns
         -------
         - `body` : the body object

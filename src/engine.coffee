@@ -60,6 +60,7 @@ class global.GameEngine
         - `img` : an image object on the form: `{path}`
         - `bodyParams` : parameters for the BodyDef on the form:
             `{dyn, w, h, d, f, r}`
+
         Returns
         -------
         - `id` : the id of the entity object
