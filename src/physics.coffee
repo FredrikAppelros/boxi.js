@@ -19,7 +19,6 @@ class global.PhysicsEngine
         - `gravity` : a gravity vector on the form: `{x, y}`
         ###
         @world = new b2World(new b2Vec2(gravity.x, gravity.y), true)
-        @bodies = {}
 
     simulate: ->
         ###
