@@ -7,6 +7,7 @@ class global.GraphicsEngine
         ----------
         - `canvas` : the canvas object
         ###
+
         # TODO add fullscreen support
 
         # Create a renderer
@@ -22,6 +23,7 @@ class global.GraphicsEngine
         ###
         Renders a single frame.
         ###
+
         @renderer.render(@stage)
 
     createSprite: (img) ->
@@ -36,6 +38,7 @@ class global.GraphicsEngine
         -------
         - `sprite` : the sprite object
         ###
+
         @textures[img.path] = PIXI.Texture.fromImage(img.path) unless @textures[img.path]
         sprite = new PIXI.Sprite(@textures[img.path])
         sprite.anchor.x = sprite.anchor.y = 0.5
@@ -50,5 +53,6 @@ class global.GraphicsEngine
         ----------
         - `sprite` : the sprite to remove
         ###
+
         @stage.removeChild(sprite)
 

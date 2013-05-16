@@ -18,12 +18,14 @@ class global.PhysicsEngine
         ----------
         - `gravity` : a gravity vector on the form: `{x, y}`
         ###
+
         @world = new b2World(new b2Vec2(gravity.x, gravity.y), true)
 
     simulate: ->
         ###
         Simulates a single step.
         ###
+
         # Perform simulation
         @world.Step(INTERVAL, 8, 3)
         @world.ClearForces()
@@ -56,6 +58,7 @@ class global.PhysicsEngine
         -------
         - `body` : the body object
         ###
+
         fixDef = new b2FixtureDef
         bodyDef = new b2BodyDef
         fixDef.shape = new b2PolygonShape
@@ -78,5 +81,6 @@ class global.PhysicsEngine
         ----------
         - `body` : the body to remove
         ###
+
         @world.DestroyBody(body)
 

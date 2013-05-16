@@ -8,6 +8,7 @@ class global.GameEngine
         - `id` : the id of the canvas
         - `gravity` : a gravity vector on the form: `{x, y}`
         ###
+
         body    = document.querySelector('body')
         canvas  = document.querySelector("##{id}")
         @graphics   = new GraphicsEngine(canvas)
@@ -32,12 +33,14 @@ class global.GameEngine
         ###
         Starts the game loop.
         ###
+
         window.requestAnimationFrame(=> @run())
 
     run: ->
         ###
         Main game loop.
         ###
+
         # Perform game logic
         @logic()
 
@@ -65,6 +68,7 @@ class global.GameEngine
         -------
         - `id` : the id of the entity object
         ###
+
         # Create backend objects
         if img?
             sprite = @graphics.createSprite(img)
@@ -88,6 +92,7 @@ class global.GameEngine
         ----------
         - `id` : the id of the entity to remove
         ###
+
         entity = @entities[id]
         @physics.removeBody(entity.body) if entity.body?
         @graphics.removeSprite(entity.sprite) if entity.sprite?
@@ -97,6 +102,7 @@ class global.GameEngine
         ###
         Performs game logic.
         ###
+
     onKeyDown: (event) ->
         ###
         Handles `keydown` events.
@@ -105,6 +111,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onKeyUp: (event) ->
         ###
         Handles `keyup` events.
@@ -113,6 +120,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onMouseDown: (event) ->
         ###
         Handles `mousedown` events.
@@ -121,6 +129,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onMouseMove: (event) ->
         ###
         Handles `mousemove` events.
@@ -129,6 +138,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onMouseUp: (event) ->
         ###
         Handles `mouseup` events.
@@ -137,6 +147,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onTouchEnd: (event) ->
         ###
         Handles `touchend` events.
@@ -145,6 +156,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onTouchMove: (event) ->
         ###
         Handles `touchmove` events.
@@ -153,6 +165,7 @@ class global.GameEngine
         ----------
         - `event` : the event
         ###
+
     onTouchStart: (event) ->
         ###
         Handles `touchstart` events.
